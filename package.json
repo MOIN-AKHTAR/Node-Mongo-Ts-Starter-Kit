@@ -1,0 +1,58 @@
+{
+  "name": "ai-headshot",
+  "version": "1.0.0",
+  "description": "<div align=\"center\"> <img src=\"logo.png\" width=120 height=120/> <h1> AI HEADSHOT </h1>   </div>",
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "files": [
+    "build/**/*"
+  ],
+  "scripts": {
+    "build": "npm run lint:fix && rm -rf ./build; npx tsc && ./node_modules/.bin/eslint 'src/**/*.ts'",
+    "lint": "eslint 'src/**/*.ts'",
+    "lint:fix": "eslint \"{src,apps,libs,test}/**/*.ts\" --ignore-pattern \"src/seeders/**\" --fix",
+    "dev": "npx nodemon",
+    "start": "node build/server",
+    "seed": "npx ts-node-dev src/seeders",
+    "start:prod": "pm2 start yarn --name ai-headshot-prod  -- start"
+  },
+  "keywords": [],
+  "author": "muzair-khan",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express-validator": "^3.0.0",
+    "@types/swagger-jsdoc": "^6.0.4",
+    "@types/swagger-ui-express": "^4.1.6",
+    "@types/winston": "^2.4.4",
+    "@typescript-eslint/eslint-plugin": "^8.5.0",
+    "@typescript-eslint/parser": "^8.5.0",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.10.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "nodemon": "^3.1.4",
+    "prettier": "^3.3.3",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.6.2"
+  },
+  "dependencies": {
+    "@aws-sdk/client-cognito-identity-provider": "^3.645.0",
+    "@aws-sdk/client-s3": "^3.645.0",
+    "@aws-sdk/s3-request-presigner": "^3.645.0",
+    "chalk": "4.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "eslint-plugin-import": "^2.30.0",
+    "eslint-plugin-node": "^11.1.0",
+    "express": "^4.19.2",
+    "express-mongo-sanitize": "^2.2.0",
+    "helmet": "^7.1.0",
+    "mongoose": "^8.6.1",
+    "npm": "^10.8.3",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
+    "winston": "^3.14.2"
+  },
+  "repository": "https://github.com/jtothea7/AI-headshot"
+}

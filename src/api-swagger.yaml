@@ -1,0 +1,29 @@
+swagger: '3.0'
+info:
+    title: Sample API
+    description: API description
+    version: 1.0.0
+host: 'localhost:5000'
+schemes:
+    - http
+securityDefinitions:
+    JWT:
+        type: apiKey
+        in: header
+        name: Authorization
+        description: "JWT Authorization header using the Bearer scheme. Example: 'Authorization: Bearer {token}'"
+security:
+    - Bearer: []
+
+definitions:
+    UserSignupInput:
+        type: object
+        properties:
+            name:
+                type: string
+                example: John
+                required: true
+            email:
+                type: string
+                example: someemail@gmail.com
+                required: true
